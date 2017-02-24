@@ -1,0 +1,25 @@
+<div>
+	<h2><%= @room_name.roomname %></h2>
+	<form action="/send/message" method="post">
+		<div>
+			<div>
+				<textarea name="body" rows="4" cols="40"></textarea>
+			</div>
+			<div>
+				<input type="hidden" name="room_id" value="<%= @room_name.id %>">
+			</div>
+			<div>
+				<input type="hidden" name="username" value="<%= @session[:screen_name] %>">
+				<div>
+					<input type="submit" value="send">
+				</div>
+			</div>
+	</form>
+	<div>
+		<% @message.order('id DESC').each do |message| %>
+			<ul>
+				<li><%= message.username %></li>
+				<li><%= message.body.gsub("\n","<br>") %></li>
+			</ul>
+		<% end %>
+	</div>

@@ -1,0 +1,11 @@
+.bundle/
+vendor/bundle
+
+.c9/
+
+.ruby-version
+
+*.db
+.DS_Store
+
+db/development.db
